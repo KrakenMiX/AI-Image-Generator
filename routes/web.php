@@ -12,9 +12,7 @@ use App\Http\Controllers\AipromptController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('aiprompt', [AipromptController::class, 'index'])->name('aiprompt');
-Route::get('airesult', [AipromptController::class, 'image'])->name('airesult');
+Route::get('/', [AipromptController::class, 'index'])->name('aiprompt');
+Route::post('generate', [AipromptController::class, 'generateImage'])->name('generate');
+Route::get('result', [AipromptController::class, 'image'])->name('airesult');
+Route::get('download', [AipromptController::class, 'download'])->name('download');
