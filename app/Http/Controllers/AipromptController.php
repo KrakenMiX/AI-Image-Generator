@@ -18,11 +18,6 @@ class AipromptController extends Controller
         $negPrompt = $request->input('negative-prompt');
         $scale = $request->input('radio-ratio');
 
-        // $request->validate([
-        //     'type' => 'required',
-        //     'prompt' => 'required',
-        // ]);
-
         if ($type == 'anime') {
             $result = generateAnime($prompt, $negPrompt, $scale);
             $data = [
@@ -42,6 +37,7 @@ class AipromptController extends Controller
     public function download(Request $request)
     {
         $filename = $request->query('filename');
+        $filename = explode(",", $filename)[0];
         $url = $request->query('url');
         header("Content-disposition:attachment; filename=$filename");
         return readfile($url);
