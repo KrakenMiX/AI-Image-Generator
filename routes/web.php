@@ -20,6 +20,7 @@ Route::post('register/action', [RegisterController::class, 'actionregister'])->n
 
 //LOGIN
 Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
 Route::get('aiprompt', [AipromptController::class, 'index'])->name('aiprompt')->middleware('auth');
