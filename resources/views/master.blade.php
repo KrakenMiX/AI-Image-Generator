@@ -15,7 +15,7 @@
 
 <body>
     <div class="navbar">
-        <div class="logo">AI Gen</div>
+        <div class="logo">GenAI Art</div>
         <div class="nav-buttons">
           <a href="#" class="nav-button">Home</a>
           <a href="#" class="nav-button">Generate AI</a>

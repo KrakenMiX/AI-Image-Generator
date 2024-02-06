@@ -4,7 +4,7 @@
     <form action="{{ route('generate') }}" method="POST">
         @csrf
         <div class="title-area">
-            <span class="title">Image AI Generator</span>
+            <span class="title">Art Image AI Generator</span>
         </div>
         <div class="radio-type">
             <input type="radio" name="radio-type" id="anime" value="anime" checked="checked">
@@ -35,14 +35,16 @@
                 placeholder="negative prompt">child, kid, baby, underage, children, young, infant, lowres, bad anatomy, text, error, missing fingers, missing foots, extra digit, fewer digits, cropped, worst quality, low normal jpeg artifacts, signature, watermark, username, blurry, artist name, bad_prompt_version2, (((Blurry Eyes))), (((bad anatomy))), ((disabled body)), ((deformed ((missing finger)), ((mutant hands)), ((more than five fingers)), badly drawn lack of detail, (((Low resolution))), ((bad ((text)), low-quality image, details in the distorted mouth</textarea>
             <i class="bx bxs-checkbox-minus"></i>
         </div>
-        <span class="subtitle"> </span>
-        <div class="toggle-switch">
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider"></span>
+        <div class="blur-nsfw" style="display: none;">
+            <span class="subtitle"> </span>
+            <div class="toggle-switch">
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
 
-            </label>
-            <span class="check-text">Blur NSFW</span>
+                </label>
+                <span class="check-text">Blur NSFW</span>
+            </div>
         </div>
         <span class="subtitle">Aspect Ratio</span>
         <div class="radio-ratio">
@@ -84,10 +86,12 @@
             $('.button-negative').on('click', function(e) {
                 if ($('.input-negative').is(":hidden")) {
                     $('.input-negative').show();
+                    $('.blur-nsfw').show();
                     $('.button-negative .show').show();
                     $('.button-negative .hide').hide();
                 } else {
                     $('.input-negative').hide();
+                    $('.blur-nsfw').hide();
                     $('.button-negative .show').hide();
                     $('.button-negative .hide').show();
                 }

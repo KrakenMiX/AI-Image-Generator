@@ -12,14 +12,14 @@
             @endif
             <form action="{{route('actionregister')}}" method="post">
             @csrf
-            <span class="subtitle">Email</span>
-            <div class="input-box">
-                <input type="text" name="email" class="form-control" placeholder="Input your email..." required>
-                <i class='bx bx-code-alt'></i>
-            </div>
             <span class="subtitle">Username</span>
             <div class="input-box">
                 <input type="text" name="username" class="form-control" placeholder="Input your username..." required>
+                <i class='bx bx-code-alt'></i>
+            </div>
+            <span class="subtitle">Email</span>
+            <div class="input-box">
+                <input type="text" name="email" class="form-control" placeholder="Input your email..." required>
                 <i class='bx bx-code-alt'></i>
             </div>
             <span class="subtitle">Password</span>
