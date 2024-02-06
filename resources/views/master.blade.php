@@ -8,15 +8,27 @@
     <title>Image Generator</title>
 
     <!-- Custom styles for this template -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url('css/style.css') }}" />
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 
 <body>
+    <header>
 
-    <div class="wrapper">
-        @yield('content')
-    </div>
+        <nav>
+            <ul>
+                <li><a class="nav-link" >Home</a></li>
+                <li><a class="nav-link" >About</a></li>
+                <li><a class="btn btn-primary">Logout</a>
+            </ul>
+        </nav>
+    </header>
+      <div class="bg">
+          <div class="wrapper">
+              @yield('content')
+          </div>
+      </div>
 </body>
 
 </html>
