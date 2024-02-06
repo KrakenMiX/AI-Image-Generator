@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container"><br>
-        <div class="col-md-4 col-md-offset-4">
+        <div>
             <h2 class="text-center"><b>AI-Prompt Generator</b><br>Login Site</h3>
             <hr>
             @if(session('error'))

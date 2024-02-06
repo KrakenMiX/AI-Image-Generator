@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container"><br>
-        <div class="col-md-6 col-md-offset-3">
+        <div>
             <h2 class="text-center">FORM REGISTER USER</h3>
             <hr>
             @if(session('message'))
