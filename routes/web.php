@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AipromptController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LoadingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,6 @@ Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('acti
 Route::post('generate', [AipromptController::class, 'generateImage'])->name('generate');
 Route::get('result', [AipromptController::class, 'image'])->name('airesult');
 Route::get('download', [AipromptController::class, 'download'])->name('download');
+
+Route::get('loading', [LoadingController::class, 'index'])->name('loading');
 
