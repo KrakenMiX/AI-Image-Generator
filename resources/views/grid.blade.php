@@ -9,11 +9,11 @@
 </head>
 <body>
 	<div class="image-grid">
-		<img class="image-grid-col-2 image-grid-row-2" src="http://dcode.local/tmp/architecture.jpg" alt="architecture">
-		<img src="http://dcode.local/tmp/architecture.jpg" alt="architecture">
-		<img src="http://dcode.local/tmp/architecture.jpg" alt="architecture">
-		<img src="http://dcode.local/tmp/architecture.jpg" alt="architecture">
-		<img src="http://dcode.local/tmp/architecture.jpg" alt="architecture">
+		<img class="image-grid-col-2 image-grid-row-2" src="https://source.unsplash.com/random/300x300?v=1" alt="architecture">
+		<img src="https://source.unsplash.com/random/300x300?v=2" alt="architecture">
+		<img src="https://source.unsplash.com/random/300x300?v=3" alt="architecture">
+		<img src="https://source.unsplash.com/random/300x300?v=4" alt="architecture">
+		<img src="https://source.unsplash.com/random/300x300?v=5" alt="architecture">
 	</div>
 </body>
 </html>

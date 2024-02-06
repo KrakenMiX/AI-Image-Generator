@@ -14,16 +14,16 @@
 </head>
 
 <body>
-    <header>
-
-        <nav>
-            <ul>
-                <li><a class="nav-link" >Home</a></li>
-                <li><a class="nav-link" >About</a></li>
-                <li><a class="btn btn-primary">Logout</a>
-            </ul>
-        </nav>
-    </header>
+    <div class="navbar">
+        <div class="logo">AI Gen</div>
+        <div class="nav-buttons">
+          <a href="#" class="nav-button">Home</a>
+          <a href="#" class="nav-button">Generate AI</a>
+          <a href="#" class="nav-button">Gallery</a>
+          <a href="#" class="nav-button">Community</a>
+        </div>
+        <button class="profile-button">User Logo</button>
+      </div>
       <div class="bg">
           <div class="wrapper">
               @yield('content')
