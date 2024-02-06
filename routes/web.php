@@ -15,6 +15,10 @@ use App\Http\Controllers\LoadingController;
 |
 */
 
+Route::get('grid', function () {
+    return view('grid');
+});
+
 //REGISTER
 Route::get('register', [RegisterController::class, 'register'])->name('register');
 Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
