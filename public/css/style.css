@@ -242,6 +242,7 @@ label.image-type {
 }
 
 label.scale {
+    margin-right: 14px;
     position: relative;
     align-items: center;
     color: #fff;
