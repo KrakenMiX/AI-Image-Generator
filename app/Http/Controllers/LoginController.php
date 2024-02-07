@@ -12,7 +12,7 @@ class LoginController extends Controller
     {
         if (Auth::check()) {
             return redirect('aiprompt');
-        }else{
+        } else {
             return view('login');
         }
     }
@@ -26,8 +26,8 @@ class LoginController extends Controller
 
         if (Auth::Attempt($data)) {
             return redirect('aiprompt');
-        }else{
-            Session::flash('error', 'Email atau Password Salah');
+        } else {
+            session()->flash('error', 'Email atau Password Salah');
             return redirect('/');
         }
     }
