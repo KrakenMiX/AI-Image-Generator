@@ -19,6 +19,10 @@ Route::get('grid', function () {
     return view('grid');
 });
 
+Route::get('galeri', function () {
+    return view('galeri');
+});
+
 //REGISTER
 Route::get('register', [RegisterController::class, 'register'])->name('register');
 Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');

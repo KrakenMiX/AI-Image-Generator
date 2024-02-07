@@ -235,6 +235,17 @@
     justify-content: space-evenly;
 }
 
+.wrapper-galeri {
+    width: 80%;
+    margin: 100px auto 0;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
+    backdrop-filter: blur(5px); /* Blur effect */
+    border: 3px solid #ccc; /* Gray border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding to separate images from border */
+    overflow: hidden;
+}
+
 .image-type.anime {
     background: url('../img/anime.jpeg') no-repeat;
 }

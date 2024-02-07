@@ -1,6 +1,8 @@
 @extends('master')
 
 @section('content')
+<div class="wrapper">
+
     <div class="container"><br>
         <div>
             <h2 class="text-center">FORM REGISTER USER</h3>
@@ -38,5 +40,6 @@
             </form>
         </div>
     </div>
-</body>
+
+</div>
 @endsection

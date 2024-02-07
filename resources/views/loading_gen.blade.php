@@ -1,6 +1,8 @@
 @extends('master')
 
 @section('content')
+<div class="wrapper">
+
     <div class="title-area loading">
         <span class="title">Generating Image</span>
     </div>
@@ -19,6 +21,7 @@
             <br>
         </form>
     </div>
+</div>
 @endsection
 
 @section('script')

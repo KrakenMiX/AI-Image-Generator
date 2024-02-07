@@ -1,6 +1,8 @@
 @extends('master')
 
 @section('content')
+<div class="wrapper">
+
     <form action="{{ route('generate') }}" method="POST">
         @csrf
         <div class="title-area">
@@ -67,6 +69,7 @@
             </button>
         </div>
     </form>
+</div>
 @endsection
 
 @section('script')

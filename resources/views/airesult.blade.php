@@ -1,6 +1,8 @@
 @extends('master')
 
 @section('content')
+<div class="wrapper">
+
     <a href="{{ route('aiprompt') }}" class="back-button">
         <i class="fa-solid fa-left"></i>
     </a>
@@ -36,6 +38,7 @@
             <br>
         </form>
     </div>
+</div>
 @endsection
 
 @section('script')

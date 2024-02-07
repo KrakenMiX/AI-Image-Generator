@@ -1,6 +1,8 @@
 @extends('master')
 
 @section('content')
+<div class="wrapper">
+
     <div class="container"><br>
         <div>
             <h2 class="text-center"><b>AI-Prompt Generator</b><br>Login Site</h3>
@@ -37,4 +39,5 @@
             </form>
         </div>
     </div>
+</div>
 @endsection
