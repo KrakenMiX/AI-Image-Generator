@@ -8,6 +8,6 @@ class LoadingController extends Controller
 {
     public function index()
     {
-        return view('loading');
+        return view('loading_gen');
     }
 }

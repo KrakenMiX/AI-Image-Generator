@@ -18,7 +18,7 @@
         <div class="logo">GenAI Art</div>
         <div class="nav-buttons">
           <a href="#" class="nav-button">Home</a>
-          <a href="#" class="nav-button">Generate AI</a>
+          <a href="{{ route('aiprompt') }}" class="nav-button">Generate AI</a>
           <a href="#" class="nav-button">Gallery</a>
           <a href="#" class="nav-button">Community</a>
         </div>

@@ -31,6 +31,26 @@ class AipromptController extends Controller
                 'rating' => $result->rating
             ];
             return view('airesult', $data);
+        } else if ($type == 'pastel') {
+            $result = generatePastel($prompt, $negPrompt, $scale);
+            $data = [
+                'type' => $type,
+                'prompt' => $prompt,
+                'negPrompt' => $negPrompt,
+                'scale' => $scale,
+                'processUrl' => $result->urls->get,
+            ];
+            return view('loading_gen', $data);
+        } else if ($type == 'realistic') {
+            $result = generateReal($prompt, $negPrompt, $scale);
+            $data = [
+                'type' => $type,
+                'prompt' => $prompt,
+                'negPrompt' => $negPrompt,
+                'scale' => $scale,
+                'processUrl' => $result->urls->get,
+            ];
+            return view('loading_gen', $data);
         }
     }
 
@@ -46,5 +66,26 @@ class AipromptController extends Controller
     public function image()
     {
         return view('airesult');
+    }
+
+    public function post_result(Request $request)
+    {
+        $type = $request->query('type');
+        $prompt = $request->query('prompt');
+        $negPrompt = $request->query('negPrompt');
+        $scale = $request->query('scale');
+        $image = $request->query('image');
+        $safety = checkSafety($image);
+
+        $data = [
+            'type' => $type,
+            'prompt' => $prompt,
+            'negPrompt' => $negPrompt,
+            'scale' => $scale,
+            'image' => $image,
+            'isSafe' => $safety->isSafe,
+            'rating' => $safety->rating
+        ];
+        return view('airesult', $data);
     }
 }

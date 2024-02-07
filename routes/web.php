@@ -36,4 +36,4 @@ Route::get('result', [AipromptController::class, 'image'])->name('airesult');
 Route::get('download', [AipromptController::class, 'download'])->name('download');
 
 Route::get('loading', [LoadingController::class, 'index'])->name('loading');
-
+Route::get('post_result', [AipromptController::class, 'post_result'])->name('post_result');
