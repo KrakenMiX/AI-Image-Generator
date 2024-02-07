@@ -71,7 +71,7 @@ if (!function_exists('generatePastel')) {
             ],
             "body" => json_encode([
                 "userId" => $userId,
-                "prompt" => ", ".$prompt,
+                "prompt" => $prompt,
                 "negativePrompt" => $negPrompt,
                 "width" => $width,
                 "height" => $height
