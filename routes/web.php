@@ -31,6 +31,7 @@ Route::post('register/action', [RegisterController::class, 'actionregister'])->n
 Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 
 Route::get('aiprompt', [AipromptController::class, 'index'])->name('aiprompt')->middleware('auth');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');

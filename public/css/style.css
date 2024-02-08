@@ -97,17 +97,6 @@
 }
 
 
-.profile-button {
-    background-color: #3498db;
-    /* Change the color as needed */
-    color: white;
-    /* Change the color as needed */
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 /* Anything udner 1024px */
 @media screen and (max-width: 1024px) {
     .image-grid {
@@ -248,12 +237,26 @@
 .wrapper-galeri {
     width: 80%;
     margin: 100px auto 0;
+<<<<<<< HEAD
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(9px);
     color: #fff;
     border-radius: 12px;
     padding: 30px 30px;
+=======
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Transparent background */
+    backdrop-filter: blur(5px);
+    /* Blur effect */
+    border: 3px solid #ccc;
+    /* Gray border */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 20px;
+    /* Padding to separate images from border */
+    overflow: hidden;
+>>>>>>> fee5afd853214f0d74d263cae075218afefd8a23
 }
 
 
@@ -445,6 +448,7 @@ input[type="radio"]:checked+label:before {
     background: #061128
 }
 
+<<<<<<< HEAD
 .image-link {
     display: inline-block;
     overflow: hidden;
@@ -459,3 +463,48 @@ input[type="radio"]:checked+label:before {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     filter: brightness(70%); /* Apply brightness filter to darken the image */
   }
+=======
+/* PROFILE */
+.dropdown-menu {
+    right: 0;
+    left: unset;
+    background-color: rgb(57 71 82 / 90%);
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-menu span,
+.dropdown-menu i {
+    color: white;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-toggle {
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown-toggle:hover {
+    color: rgb(226, 226, 226);
+}
+
+.profile-menu .fa-fw {
+    margin-right: 10px;
+}
+
+.toggle-change::after {
+    border-top: 0;
+    border-bottom: 0.3em solid;
+}
+
+.profile-button {
+    list-style: none;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+>>>>>>> fee5afd853214f0d74d263cae075218afefd8a23
