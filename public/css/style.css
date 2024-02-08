@@ -235,16 +235,28 @@
     justify-content: space-evenly;
 }
 
+.title-area-galeri {
+    text-align: left;
+}
+
+.title-galeri {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: left;
+}
+
 .wrapper-galeri {
     width: 80%;
     margin: 100px auto 0;
-    background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
-    backdrop-filter: blur(5px); /* Blur effect */
-    border: 3px solid #ccc; /* Gray border */
-    border-radius: 10px; /* Rounded corners */
-    padding: 20px; /* Padding to separate images from border */
-    overflow: hidden;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(9px);
+    color: #fff;
+    border-radius: 12px;
+    padding: 30px 30px;
 }
+
+
 
 .image-type.anime {
     background: url('../img/anime.jpeg') no-repeat;
@@ -432,3 +444,18 @@ input[type="radio"]:checked+label:before {
 ::-webkit-scrollbar-thumb {
     background: #061128
 }
+
+.image-link {
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  .hover-zoom {
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+  }
+
+  .hover-zoom:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    filter: brightness(70%); /* Apply brightness filter to darken the image */
+  }
