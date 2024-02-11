@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="wrapper">
-
     <a href="{{ route('aiprompt') }}" class="back-button">
         <i class="fa-solid fa-left"></i>
     </a>
@@ -29,12 +28,6 @@
                     <i class="fa-regular fa-circle-down"></i>
                 </button>
             </div>
-
-            {{-- <div id="button-download" class="text-center px-2 py-2"
-                style="background: #fff;width: 300px;border-radius: 50px; margin: auto;padding: 15px;">
-                <i class="fa fa-download text-black " aria-hidden="true" style="line-height: 45px; ">&nbsp
-                    Download</i>
-            </div> --}}
             <br>
         </form>
     </div>

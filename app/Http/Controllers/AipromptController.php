@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ImageGen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AipromptController extends Controller
 {
@@ -13,44 +15,71 @@ class AipromptController extends Controller
 
     public function generateImage(Request $request)
     {
-        $type = $request->input('radio-type');
-        $prompt = $request->input('prompt');
-        $negPrompt = $request->input('negative-prompt');
-        $scale = $request->input('radio-ratio');
-
-        if ($type == 'anime') {
-            $result = generateAnime($prompt, $negPrompt, $scale);
-            $data = [
-                'type' => $type,
-                'prompt' => $prompt,
-                'negPrompt' => $negPrompt,
-                'scale' => $scale,
-                'success' => $result->success,
-                'image' => $result->image,
-                'isSafe' => $result->isSafe,
-                'rating' => $result->rating
-            ];
-            return view('airesult', $data);
-        } else if ($type == 'pastel') {
-            $result = generatePastel($prompt, $negPrompt, $scale);
-            $data = [
-                'type' => $type,
-                'prompt' => $prompt,
-                'negPrompt' => $negPrompt,
-                'scale' => $scale,
-                'processUrl' => $result->urls->get,
-            ];
-            return view('loading_gen', $data);
-        } else if ($type == 'realistic') {
-            $result = generateReal($prompt, $negPrompt, $scale);
-            $data = [
-                'type' => $type,
-                'prompt' => $prompt,
-                'negPrompt' => $negPrompt,
-                'scale' => $scale,
-                'processUrl' => $result->urls->get,
-            ];
-            return view('loading_gen', $data);
+        try {
+            $type = $request->input('radio-type');
+            $prompt = $request->input('prompt');
+            $negPrompt = $request->input('negative-prompt');
+            $scale = $request->input('radio-ratio');
+    
+            if (Auth::check()) {
+                $user = Auth::user();
+                $apiId = $user->id_api;
+                if ($type == 'anime') {
+                    $result = generateAnime($prompt, $negPrompt, $scale);
+                    $saveUuid = saveImage($apiId, $result->image, $prompt, $negPrompt, $scale, $result->isSafe);
+                    $image = getImage($saveUuid)->image;
+                    $data = [
+                        'type' => $type,
+                        'prompt' => $prompt,
+                        'negPrompt' => $negPrompt,
+                        'scale' => $scale,
+                        'success' => $result->success,
+                        'image' => $image,
+                        'isSafe' => $result->isSafe,
+                        'rating' => $result->rating
+                    ];
+                    $scale_result = extractScale($scale);
+                    ImageGen::create([
+                        'id_user' => $user->id_user,
+                        'type' => $type,
+                        'url' => $image,
+                        'prompt' => $prompt,
+                        'negative_prompt' => $negPrompt,
+                        'width' => $scale_result->width,
+                        'height' => $scale_result->height,
+                        'is_safe' => $result->isSafe ? 1 : 0,
+                        'is_post' => 0
+                    ]);
+                    return view('airesult', $data);
+                } else if ($type == 'pastel') {
+                    getToken($apiId);
+                    $result = generatePastel($apiId, $prompt, $negPrompt, $scale);
+                    $data = [
+                        'type' => $type,
+                        'prompt' => $prompt,
+                        'negPrompt' => $negPrompt,
+                        'scale' => $scale,
+                        'processUrl' => $result->urls->get,
+                    ];
+                    return view('loading', $data);
+                } else if ($type == 'realistic') {
+                    getToken($apiId);
+                    $result = generateReal($apiId, $prompt, $negPrompt, $scale);
+                    $data = [
+                        'type' => $type,
+                        'prompt' => $prompt,
+                        'negPrompt' => $negPrompt,
+                        'scale' => $scale,
+                        'processUrl' => $result->urls->get,
+                    ];
+                    return view('loading', $data);
+                }
+            } else {
+                session()->flash('error', 'Anda harus login terlebih dahulu.');
+                return redirect()->route('login');
+            }
+        } catch (\Exception $e) {
+            return view('error');
         }
     }
 
@@ -77,15 +106,34 @@ class AipromptController extends Controller
         $image = $request->query('image');
         $safety = checkSafety($image);
 
-        $data = [
-            'type' => $type,
-            'prompt' => $prompt,
-            'negPrompt' => $negPrompt,
-            'scale' => $scale,
-            'image' => $image,
-            'isSafe' => $safety->isSafe,
-            'rating' => $safety->rating
-        ];
-        return view('airesult', $data);
+        if (Auth::check()) {
+            $user = Auth::user();
+            $scale_result = extractScale($scale);
+            ImageGen::create([
+                'id_user' => $user->id_user,
+                'type' => $type,
+                'url' => $image,
+                'prompt' => $prompt,
+                'negative_prompt' => $negPrompt,
+                'width' => $scale_result->width,
+                'height' => $scale_result->height,
+                'is_safe' => $safety->isSafe ? 1 : 0,
+                'is_post' => 0
+            ]);
+
+            $data = [
+                'type' => $type,
+                'prompt' => $prompt,
+                'negPrompt' => $negPrompt,
+                'scale' => $scale,
+                'image' => $image,
+                'isSafe' => $safety->isSafe,
+                'rating' => $safety->rating
+            ];
+            return view('airesult', $data);
+        } else {
+            session()->flash('error', 'Anda harus login terlebih dahulu.');
+            return redirect()->route('login');
+        }
     }
 }

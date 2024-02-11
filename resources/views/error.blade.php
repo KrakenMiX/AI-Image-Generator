@@ -4,7 +4,7 @@
 <div class="wrapper">
 
     <div class="title-area loading">
-        <span class="title">Generating Image</span>
+        <span class="title">Failed Generate</span>
     </div>
     <div class="text-white px-3 py-3" style="">
         <form action="{{ route('generate') }}" method="POST">
@@ -14,11 +14,20 @@
             <input type="hidden" name="negative-prompt" value="{{ $negPrompt }}">
             <input type="hidden" name="radio-ratio" value="{{ $scale }}">
             @csrf
-            <img class="loading-img" src="https://media.tenor.com/KsIHk9tptf8AAAAi/thinking-hmm.gif">
+            <img class="loading-img" src="img/shock.gif">
             <div class="loading-text">
-                <span>This process will take some time for generating the image.</span>
+                <span id="status">Oops...</span>
+                <br>
+                <span>We have an error, please try again</span>
             </div>
             <br>
+            <div class="button-area">
+                <button id="button-generate" type="submit" class="btn result">
+                    <span>Regenerate</span>
+                    <i class="gen-icon fa-solid fa-arrow-rotate-right"></i>
+                    <i class="load-icon fas fa-cog fa-spin" style="display: none;"></i>
+                </button>
+            </div>
         </form>
     </div>
 </div>
@@ -38,10 +47,14 @@
                     `https://kawaii-ai-image-generator.herokuapp.com/image/upscale?url=${url_process}`,
                     function(data) {
                         if (data.status == 'succeeded') {
+                            $('#status').text('Done.');
                             clearInterval(intervalCheck);
                             var output = data.output;
                             if (Array.isArray(output)) output = output.slice(-1)
                             window.location.href = `{{ route('post_result') }}?type=${type}&prompt=${prompt}&negPrompt=${negPrompt}&scale=${radio}&image=${output}`;
+                        }
+                        if (data.status == 'processing') {
+                            $('#status').text('Processing image...');
                         }
                     }).fail(function(errMsg) {
                         alert('GAGAL');

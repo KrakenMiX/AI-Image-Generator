@@ -16,14 +16,19 @@ class RegisterController extends Controller
     
     public function actionregister(Request $request)
     {
-        $user = User::create([
+        $api_id = generateRandomID();
+
+        User::create([
+            'id_api' => $api_id,
             'email' => $request->email,
             'username' => $request->username,
             'password' => Hash::make($request->password),
             'active' => 1
         ]);
 
+        registerUser($api_id);
+
         Session::flash('message', 'Register Berhasil. Akun Anda sudah Aktif silahkan Login menggunakan username dan password.');
-        return redirect('register');
+        return redirect('login');
     }
 }

@@ -34,7 +34,7 @@
         </span>
         <div class="input-box input-negative" style="display: none;">
             <textarea name="negative-prompt" id="" cols="30" rows="5" style="overflow: hidden;"
-                placeholder="negative prompt">(nfsw),(nude),(naked),(nipples),child, kid, baby, underage, children, young, infant, lowres, bad anatomy, text, error, missing fingers, missing foots, extra digit, fewer digits, cropped, worst quality, low normal jpeg artifacts, signature, watermark, username, blurry, artist name, bad_prompt_version2, (((Blurry Eyes))), (((bad anatomy))), ((disabled body)), ((deformed ((missing finger)), ((mutant hands)), ((more than five fingers)), badly drawn lack of detail, (((Low resolution))), ((bad ((text)), low-quality image, details in the distorted mouth</textarea>
+                placeholder="negative prompt">child, kid, baby, underage, children, young, infant, lowres, bad anatomy, text, error, missing fingers, missing foots, extra digit, fewer digits, cropped, worst quality, low normal jpeg artifacts, signature, watermark, username, blurry, artist name, bad_prompt_version2, (((Blurry Eyes))), (((bad anatomy))), ((disabled body)), ((deformed ((missing finger)), ((mutant hands)), ((more than five fingers)), badly drawn lack of detail, (((Low resolution))), ((bad ((text)), low-quality image, details in the distorted mouth, (nfsw), (nude), (naked), (nipples)</textarea>
             <i class="bx bxs-checkbox-minus"></i>
         </div>
         <div class="blur-nsfw" style="display: none;">

@@ -21,8 +21,8 @@
         <div class="nav-buttons">
             <a href="#" class="nav-button">Home</a>
             <a href="{{ route('aiprompt') }}" class="nav-button">Generate AI</a>
-            <a href="#" class="nav-button">Gallery</a>
-            <a href="#" class="nav-button">Community</a>
+            <a href="{{ route('gallery') }}" class="nav-button">Gallery</a>
+            <a href="{{ route('community') }}" class="nav-button">Community</a>
         </div>
         <li class="profile-button dropdown">
             <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -30,15 +30,6 @@
                 {{ Auth::user() ? Auth::user()->username : 'Guest' }}
             </a>
             <ul class="dropdown-menu">
-                <li>
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-cog fa-fw"></i>
-                        <span class="text-center px-4">Ubah Profil</span>
-                    </a>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
                 <li><a class="dropdown-item" href="{{ route('actionlogout') }}">
                         <i class="fas fa-sign-out-alt fa-fw"></i> 
                         <span class="text-center px-4">Log Out</span>
