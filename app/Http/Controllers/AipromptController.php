@@ -15,11 +15,11 @@ class AipromptController extends Controller
 
     public function generateImage(Request $request)
     {
+        $type = $request->input('radio-type');
+        $prompt = $request->input('prompt');
+        $negPrompt = $request->input('negative-prompt');
+        $scale = $request->input('radio-ratio');
         try {
-            $type = $request->input('radio-type');
-            $prompt = $request->input('prompt');
-            $negPrompt = $request->input('negative-prompt');
-            $scale = $request->input('radio-ratio');
     
             if (Auth::check()) {
                 $user = Auth::user();
@@ -79,7 +79,13 @@ class AipromptController extends Controller
                 return redirect()->route('login');
             }
         } catch (\Exception $e) {
-            return view('error');
+            $err_data = [
+                'type' => $type,
+                'prompt' => $prompt,
+                'negPrompt' => $negPrompt,
+                'scale' => $scale,
+            ];
+            return view('error', $err_data);
         }
     }
 
