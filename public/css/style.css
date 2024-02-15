@@ -224,20 +224,24 @@
     justify-content: space-evenly;
 }
 
+.title-area-galeri {
+    text-align: left;
+}
+
+.title-galeri {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: left;
+}
+
 .wrapper-galeri {
     width: 80%;
     margin: 100px auto 0;
-    background-color: rgba(255, 255, 255, 0.5);
-    /* Transparent background */
-    backdrop-filter: blur(5px);
-    /* Blur effect */
-    border: 3px solid #ccc;
-    /* Gray border */
-    border-radius: 10px;
-    /* Rounded corners */
-    padding: 20px;
-    /* Padding to separate images from border */
-    overflow: hidden;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(9px);
+    color: #fff;
+    padding: 30px 30px;
 }
 
 .image-type.anime {
@@ -426,6 +430,90 @@ input[type="radio"]:checked+label:before {
 ::-webkit-scrollbar-thumb {
     background: #061128
 }
+
+.image-link {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.image-detail {
+    position: absolute;
+    padding: 15px;
+    height: 80px;
+    bottom: 0;
+}
+
+.image-detail.community {
+    height: 70px;
+}
+
+.image-detail .prompt {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.image-detail .prompt.community {
+    -webkit-line-clamp: 1;
+}
+
+.image-link:hover .prompt {
+    opacity: 1;
+}
+
+.hover-zoom {
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+}
+
+.hover-zoom:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    filter: brightness(70%);
+    /* Apply brightness filter to darken the image */
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
 
 /* PROFILE */
 .dropdown-menu {
