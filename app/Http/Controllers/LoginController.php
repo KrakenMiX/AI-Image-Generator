@@ -8,14 +8,19 @@ use Session;
 
 class LoginController extends Controller
 {
-    public function login()
+    public function index()
     {
         if (Auth::check()) {
             return redirect('aiprompt');
         } else {
-            return view('login');
+            return redirect('login');
         }
     }
+
+    public function login()
+    {
+        return view('login');
+     }
 
     public function actionlogin(Request $request)
     {

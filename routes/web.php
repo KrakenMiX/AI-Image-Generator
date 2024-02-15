@@ -28,7 +28,7 @@ Route::get('register', [RegisterController::class, 'register'])->name('register'
 Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
 
 //LOGIN
-Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::get('/', [LoginController::class, 'index'])->name('index');
 Route::get('login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
