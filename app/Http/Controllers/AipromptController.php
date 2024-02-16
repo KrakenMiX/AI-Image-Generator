@@ -64,6 +64,7 @@ class AipromptController extends Controller
                         'negPrompt' => $negPrompt,
                         'scale' => $scale,
                         'processUrl' => $result->urls->get,
+                        'blur' => $blur,
                     ];
                     return view('loading', $data);
                 } else if ($type == 'realistic') {
