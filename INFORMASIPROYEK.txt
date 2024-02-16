@@ -1,0 +1,24 @@
+TUGAS BESAR PTI
+Kelas: IF4
+
+Anggota Kelompok:
+10121161 - Hanif Ahmad Syauqi
+10121157 – Ilmi Faturrahman G.
+10122790 – Rafly Maulana Z.
+10121145 – Alfatihnaman Badharija P. M.
+
+Nama Aplikasi: GenAI Art
+GenAI Art adalah aplikasi yang memungkinkan Anda membuat gambar yang menakjubkan dengan menggunakan kecerdasan buatan. Cukup masukkan teks deskripsi dan pilih gaya gambar yang Anda inginkan, dan AI Image Generator akan menghasilkan gambar yang sesuai dengan imajinasi Anda.
+
+Link:
+Website: https://genai-art.mrhrtz.my.id
+Source Code : https://github.com/KrakenMiX/AI-Image-Generator/archive/refs/heads/main.zip
+
+Instalasi:
+- Download source code atau clone github ke folder lokal
+- Masuk folder dan rename .env.example menjadi .env
+- Gunakan perintah dibawah ini satu persatu:
+> composer install
+> php artisan migrate (Jika terdapat prompt dialog, ketik Y untuk membuat database)
+> php artisan key:generate
+> php artisan serve
