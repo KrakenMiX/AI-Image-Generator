@@ -344,6 +344,9 @@ input:checked+.slider:before {
     margin-right: auto;
     width: 50%;
 }
+.blur {
+    filter: blur(15px); 
+}
 
 .loading-text {
     text-align: center;

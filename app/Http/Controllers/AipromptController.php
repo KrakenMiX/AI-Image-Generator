@@ -13,12 +13,14 @@ class AipromptController extends Controller
         return view('aiprompt');
     }
 
+
     public function generateImage(Request $request)
     {
         $type = $request->input('radio-type');
         $prompt = $request->input('prompt');
         $negPrompt = $request->input('negative-prompt');
         $scale = $request->input('radio-ratio');
+        $blur = $request->input('blur-nsfw');
         try {
     
             if (Auth::check()) {
@@ -36,6 +38,7 @@ class AipromptController extends Controller
                         'success' => $result->success,
                         'image' => $image,
                         'isSafe' => $result->isSafe,
+                        'blur' => $blur,
                         'rating' => $result->rating
                     ];
                     $scale_result = extractScale($scale);
@@ -47,6 +50,7 @@ class AipromptController extends Controller
                         'negative_prompt' => $negPrompt,
                         'width' => $scale_result->width,
                         'height' => $scale_result->height,
+                        'blur' => $blur,
                         'is_safe' => $result->isSafe ? 1 : 0,
                         'is_post' => 0
                     ]);

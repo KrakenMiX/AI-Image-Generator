@@ -15,6 +15,8 @@
             <input type="hidden" name="prompt" value="{{ $prompt }}">
             <input type="hidden" name="negative-prompt" value="{{ $negPrompt }}">
             <input type="hidden" name="radio-ratio" value="{{ $scale }}">
+            <input type="hidden" name="blur" value="{{ $blur }}">
+            
             @csrf
             <img class="result-img" src="{{ $image ? $image : 'https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg' }}">
             <div class="button-area">
