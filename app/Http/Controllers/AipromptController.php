@@ -20,7 +20,7 @@ class AipromptController extends Controller
         $prompt = $request->input('prompt');
         $negPrompt = $request->input('negative-prompt');
         $scale = $request->input('radio-ratio');
-        $blur = $request->input('blur-nsfw');
+        $blur = $request->input('blur');
         try {
     
             if (Auth::check()) {
@@ -75,6 +75,7 @@ class AipromptController extends Controller
                         'negPrompt' => $negPrompt,
                         'scale' => $scale,
                         'processUrl' => $result->urls->get,
+                        'blur' => $blur,
                     ];
                     return view('loading', $data);
                 }
@@ -88,6 +89,7 @@ class AipromptController extends Controller
                 'prompt' => $prompt,
                 'negPrompt' => $negPrompt,
                 'scale' => $scale,
+                'err' => str($e)
             ];
             return view('error', $err_data);
         }
@@ -114,6 +116,7 @@ class AipromptController extends Controller
         $negPrompt = $request->query('negPrompt');
         $scale = $request->query('scale');
         $image = $request->query('image');
+        $blur = $request->query('blur');
         $safety = checkSafety($image);
 
         if (Auth::check()) {
@@ -138,6 +141,7 @@ class AipromptController extends Controller
                 'scale' => $scale,
                 'image' => $image,
                 'isSafe' => $safety->isSafe,
+                'blur' => $blur,
                 'rating' => $safety->rating
             ];
             return view('airesult', $data);

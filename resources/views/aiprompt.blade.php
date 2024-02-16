@@ -41,7 +41,7 @@
             <span class="subtitle"> </span>
             <div class="toggle-switch">
                 <label class="switch">
-                    <input type="checkbox" name="blur-nsfw" checked>
+                    <input type="checkbox" name="blur" checked>
                     <span class="slider"></span>
 
                 </label>

@@ -13,6 +13,7 @@
             <input type="hidden" name="prompt" value="{{ $prompt }}">
             <input type="hidden" name="negative-prompt" value="{{ $negPrompt }}">
             <input type="hidden" name="radio-ratio" value="{{ $scale }}">
+            <input type="hidden" name="blur" value="{{ $blur }}">
             @csrf
             <img class="loading-img" src="img/thinking.gif">
             <div class="loading-text">
@@ -34,6 +35,7 @@
             const prompt = $('input[name="prompt"]').val();
             const negPrompt = $('input[name="negative-prompt"]').val();
             const radio = $('input[name="radio-ratio"]').val();
+            const blur = $('input[name="blur"]').val();
 
             let intervalCheck = setInterval(() => {
                 $.getJSON(
@@ -44,7 +46,7 @@
                             clearInterval(intervalCheck);
                             var output = data.output;
                             if (Array.isArray(output)) output = output.slice(-1)
-                            window.location.href = `{{ route('post_result') }}?type=${type}&prompt=${prompt}&negPrompt=${negPrompt}&scale=${radio}&image=${output}`;
+                            window.location.href = `{{ route('post_result') }}?type=${type}&prompt=${prompt}&negPrompt=${negPrompt}&scale=${radio}&image=${output}&blur=${blur}`;
                         }
                         if (data.status == 'processing') {
                             $('#status').text('Processing image...');
