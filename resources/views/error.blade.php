@@ -12,6 +12,7 @@
             <input type="hidden" name="prompt" value="{{ $prompt }}">
             <input type="hidden" name="negative-prompt" value="{{ $negPrompt }}">
             <input type="hidden" name="radio-ratio" value="{{ $scale }}">
+            <input type="hidden" name="blur" value="{{ $blur }}">
             @csrf
             <img class="loading-img" src="img/shock.gif">
             <div class="loading-text">
