@@ -12,7 +12,7 @@
         <div class="text-white px-3 py-3" style="">
             <div class="row">
                 <div class="col-12 col-md-7 text-center">
-                    <img src="{{ $image->url }}" class="img-fluid" style="border-radius: 4px;">
+                    <img src="{{ $image->url }}" class="img-fluid {{!$image->is_safe?'blur':''}}" style="border-radius: 4px;">
                 </div>
 
                 <div class="col-12 col-md-5 mt-3 mt-md-0">

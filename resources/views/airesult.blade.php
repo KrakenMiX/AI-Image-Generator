@@ -16,7 +16,7 @@
             <input type="hidden" name="negative-prompt" value="{{ $negPrompt }}">
             <input type="hidden" name="radio-ratio" value="{{ $scale }}">
             @csrf
-            <img class="result-img" src="{{ $image ? $image : 'https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg' }}">
+            <img class="result-img {{!$isSafe?'blur':''}}" src="{{ $image ? $image : 'https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg' }}">
             <div class="button-area">
                 <button id="button-generate" type="submit" class="btn result">
                     <span>Regenerate</span>

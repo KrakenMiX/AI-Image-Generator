@@ -19,7 +19,11 @@
                         @if ($image->pos == 1)
                             <a href="{{ route('communitydetail', ['id' => $image->id_image]) }}"
                                 rel="noopener noreferrer" class="image-link">
-                                <img src="{{ $image->url }}" class="hover-zoom">
+                                @if ($image->is_safe == 0)
+                                    <img src="{{ $image->url }}" class="blur">
+                                @else
+                                    <img src="{{ $image->url }}" class="hover-zoom">
+                                @endif
                                 <div class="image-detail community">
                                     <span class="prompt community">{!! $image->prompt !!}</span>
                                     <span class="prompt community">By {!! $image->owner !!}</span>
@@ -33,7 +37,11 @@
                         @if ($image->pos == 2)
                             <a href="{{ route('communitydetail', ['id' => $image->id_image]) }}"
                                 rel="noopener noreferrer" class="image-link">
-                                <img src="{{ $image->url }}" class="hover-zoom">
+                                @if ($image->is_safe == 0)
+                                    <img src="{{ $image->url }}" class="blur">
+                                @else
+                                    <img src="{{ $image->url }}" class="hover-zoom">
+                                @endif
                                 <div class="image-detail">
                                     <span class="prompt">{!! $image->prompt !!}</span>
                                 </div>
@@ -46,7 +54,11 @@
                         @if ($image->pos == 3)
                             <a href="{{ route('communitydetail', ['id' => $image->id_image]) }}"
                                 rel="noopener noreferrer" class="image-link">
-                                <img src="{{ $image->url }}" class="hover-zoom">
+                                @if ($image->is_safe == 0)
+                                    <img src="{{ $image->url }}" class="blur">
+                                @else
+                                    <img src="{{ $image->url }}" class="hover-zoom">
+                                @endif
                                 <div class="image-detail">
                                     <span class="prompt">{!! $image->prompt !!}</span>
                                 </div>
@@ -59,7 +71,11 @@
                         @if ($image->pos == 0)
                             <a href="{{ route('communitydetail', ['id' => $image->id_image]) }}"
                                 rel="noopener noreferrer" class="image-link">
-                                <img src="{{ $image->url }}" class="hover-zoom">
+                                @if ($image->is_safe == 0)
+                                    <img src="{{ $image->url }}" class="blur">
+                                @else
+                                    <img src="{{ $image->url }}" class="hover-zoom">
+                                @endif
                                 <div class="image-detail">
                                     <span class="prompt">{!! $image->prompt !!}</span>
                                 </div>
