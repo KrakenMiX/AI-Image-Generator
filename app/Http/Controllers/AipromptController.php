@@ -89,6 +89,7 @@ class AipromptController extends Controller
                 'prompt' => $prompt,
                 'negPrompt' => $negPrompt,
                 'scale' => $scale,
+                'blur' => $blur,
                 'err' => str($e)
             ];
             return view('error', $err_data);
