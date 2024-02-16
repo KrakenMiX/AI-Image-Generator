@@ -10,10 +10,15 @@ use App\Http\Controllers\LoadingController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Informasi Kelompok
 |--------------------------------------------------------------------------
 |
-| Kelompok X
+| Anggota Kelompok:
+| 
+| 10121161 - Hanif Ahmad Syauqi
+| 10121157 - Ilmi Faturrahman G.
+| 10122790 - Rafly Maulana Z.
+| 10121145 - Alfatihnaman Badharija P.M.
 |
 */
 
