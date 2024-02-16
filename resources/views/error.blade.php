@@ -46,7 +46,7 @@
                     $('#button-generate').addClass('disabled');
                 }
             })
-            console.log({{ $err }})
+            console.log(`{{ $err }}`)
         })
     </script>
 @endsection
